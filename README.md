@@ -1,2 +1,13 @@
-# Student-Task-Manager
-A student productivity website for managing study tasks, tracking progress, and organizing weekly plans, built with HTML, CSS, and JavaScript.
+# Student Hub | بوابة الطالبة
+
+موقع عربي بسيط لإدارة المهام الدراسية ومتابعة نسبة الإنجاز، باستخدام **HTML وCSS وJavaScript**.
+
+> هذا ملف README تمهيدي للورشة. يمكن للطالبة المسؤولة عن فقرة التوثيق تطويره بإضافة صور للموقع، ووصف المميزات، وطريقة التشغيل، والتقنيات المستخدمة.
+
+## التشغيل
+
+افتحي ملف `index.html` في متصفح حديث. لا يحتاج المشروع إلى خادم أو قاعدة بيانات.
+
+## ملاحظة
+
+تُحفظ المهام محليًا في متصفح كل مستخدمة باستخدام `localStorage`، ولا تتم مشاركتها تلقائيًا بين الأجهزة.

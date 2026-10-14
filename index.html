@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f5ff">
+  <meta name="description" content="بوابة الطالبة لتنظيم المهام الدراسية ومتابعة الإنجاز.">
+  <title>Student Hub | بوابة الطالبة</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="القائمة الرئيسية">
+      <a class="brand" href="#home" aria-label="Student Hub - الرئيسية">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span><strong>Student Hub</strong><small>بوابة الطالبة</small></span>
+      </a>
+      <div class="sidebar-label">القائمة الرئيسية</div>
+      <nav class="side-nav" aria-label="أقسام الموقع">
+        <a href="#home" class="nav-link active"><span aria-hidden="true">⌂</span> الرئيسية</a>
+        <a href="#tasks" class="nav-link"><span aria-hidden="true">☑</span> مهامي</a>
+        <a href="#planner" class="nav-link"><span aria-hidden="true">▦</span> خطتي الأسبوعية</a>
+        <a href="#tips" class="nav-link"><span aria-hidden="true">✧</span> نصائح دراسية</a>
+      </nav>
+      <div class="sidebar-note"><span class="note-icon" aria-hidden="true">♡</span><strong>خطوة صغيرة كل يوم</strong><p>إنجازك يبدأ بمهمة واحدة.</p></div>
+      <p class="sidebar-footer">مشروع تدريبي لورشة Git & GitHub</p>
+    </aside>
+
+    <main class="main-content" id="home">
+      <header class="topbar">
+        <div><span class="eyebrow">مساحتك الدراسية</span><h2>لوحة التحكم</h2></div>
+        <div class="topbar-actions"><span class="today" id="today-label"></span><span class="avatar" aria-label="رمز الطالبة">ط</span></div>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <span class="hero-pill">✦ رتّبي يومك على طريقتك</span>
+          <h1 id="hero-title">أهلًا بكِ في <span>Student Hub</span></h1>
+          <p>كل إنجاز كبير يبدأ بخطوة صغيرة. نظّمي مهامك، تابعي تقدمك، وخلي يومك الدراسي أخف وأوضح.</p>
+          <a class="primary-btn hero-cta" href="#tasks">ابدئي بتنظيم مهامك <span aria-hidden="true">←</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✧</div>
+          <div class="art-card"><div class="art-icon">✓</div><div class="art-lines"><i></i><i></i><i></i></div><div class="art-check">✓</div></div>
+          <div class="art-circle"></div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="ملخص المهام">
+        <article class="stat-card"><div class="stat-icon purple" aria-hidden="true">▤</div><div><p>إجمالي المهام</p><strong id="total-count">0</strong><span>مهمة مسجلة</span></div></article>
+        <article class="stat-card"><div class="stat-icon mint" aria-hidden="true">✓</div><div><p>المهام المنجزة</p><strong id="done-count">0</strong><span>أحسنتِ العمل!</span></div></article>
+        <article class="stat-card"><div class="stat-icon peach" aria-hidden="true">◷</div><div><p>المهام المتبقية</p><strong id="remaining-count">0</strong><span>خطواتك القادمة</span></div></article>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel tasks-panel" id="tasks" aria-labelledby="tasks-heading">
+          <div class="panel-heading"><div><span class="section-kicker">قائمة الإنجاز</span><h2 id="tasks-heading">مهامي الدراسية</h2><p>اكتبي مهمة جديدة، واحتفلي بإنجاز كل واحدة منها.</p></div><span class="heading-decoration" aria-hidden="true">✎</span></div>
+          <form id="task-form" class="task-form">
+            <label for="task-title" class="sr-only">اسم المهمة الجديدة</label>
+            <input id="task-title" name="task" type="text" placeholder="مثال: مراجعة درس HTML" maxlength="100" required autocomplete="off">
+            <div class="form-row">
+              <label for="task-category" class="sr-only">تصنيف المهمة</label>
+              <select id="task-category" name="category"><option value="دراسة">📚 دراسة</option><option value="مشروع">💻 مشروع</option><option value="مراجعة">📝 مراجعة</option><option value="أخرى">✨ أخرى</option></select>
+              <label for="task-date" class="sr-only">موعد المهمة (اختياري)</label>
+              <div class="date-picker-wrap">
+        <input
+          id="task-date"
+          class="date-native"
+          name="date"
+          type="date"
+          aria-label="موعد المهمة (اختياري)"
+          tabindex="-1"
+        >
+
+        <button
+          id="date-trigger"
+          class="date-trigger"
+          type="button"
+          aria-label="اختيار موعد المهمة"
+        >
+          <span id="date-display">
+             اختاري التاريخ (اختياري)
+          </span>
+          <span class="date-icon" aria-hidden="true">▦</span>
+        </button>
+          </div>
+          <button class="primary-btn add-btn" type="submit"><span aria-hidden="true">＋</span> إضافة مهمة</button>
+          </div>
+         </form>
+          <div class="task-toolbar"><strong>قائمة المهام</strong><div class="filters" role="group" aria-label="تصفية المهام"><button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">الكل</button><button type="button" class="filter-btn" data-filter="pending" aria-pressed="false">قيد الإنجاز</button><button type="button" class="filter-btn" data-filter="done" aria-pressed="false">منجزة</button></div></div>
+          <ul id="task-list" class="task-list" aria-live="polite"></ul>
+          <p id="empty-state" class="empty-state" hidden>لا توجد مهام في هذا القسم. أضيفي مهمة جديدة وابدئي! 🌷</p>
+          <p id="storage-notice" class="storage-notice" role="status" hidden>تعذر حفظ التغييرات في المتصفح. قد لا تبقى المهام بعد إغلاق الصفحة.</p>
+        </section>
+
+        <div class="right-column">
+          <section class="panel progress-panel" aria-labelledby="progress-heading"><div class="panel-heading compact"><div><span class="section-kicker">رحلة الإنجاز</span><h2 id="progress-heading">تقدمك اليوم</h2></div><span aria-hidden="true">✦</span></div><div class="progress-ring" id="progress-ring" role="img" aria-label="نسبة إنجاز المهام 0 بالمئة"><div class="progress-inner"><strong id="progress-percent">0%</strong><span>مكتمل</span></div></div><p class="progress-message" id="progress-message">كل مهمة تنجزينها تقربك من هدفك.</p><div class="progress-legend"><span><i class="dot purple-dot"></i> منجزة</span><span><i class="dot pale-dot"></i> متبقية</span></div></section>
+          <section class="panel tip-panel" id="tips" aria-labelledby="tip-heading"><div class="tip-header"><span class="tip-bulb" aria-hidden="true">✦</span><span class="section-kicker">لحظة إلهام</span></div><h2 id="tip-heading">نصيحة دراسية</h2><p id="study-tip">قسّمي المهام الكبيرة إلى خطوات صغيرة؛ البداية أسهل مما تتوقعين.</p><button id="next-tip" class="text-btn" type="button">نصيحة أخرى <span aria-hidden="true">↻</span></button></section>
+        </div>
+      </div>
+
+      <section class="panel planner-panel" id="planner" aria-labelledby="planner-heading"><div class="panel-heading"><div><span class="section-kicker">نظرة سريعة</span><h2 id="planner-heading">خطتي الأسبوعية</h2><p>أفكار بسيطة لتوزيع وقت الدراسة خلال الأسبوع.</p></div><span class="heading-decoration" aria-hidden="true">▦</span></div><div class="week-grid"><div class="day-card"><span>الأحد</span><strong>تخطيط</strong><small>حددي أهدافك</small></div><div class="day-card"><span>الإثنين</span><strong>تعلّم</strong><small>درس جديد</small></div><div class="day-card"><span>الثلاثاء</span><strong>تطبيق</strong><small>تمرين عملي</small></div><div class="day-card"><span>الأربعاء</span><strong>مراجعة</strong><small>ثبّتي معلوماتك</small></div><div class="day-card"><span>الخميس</span><strong>إنجاز</strong><small>أنهي مهامك</small></div></div><p class="planner-note">هذه خطة إرشادية ثابتة، ويمكن تطويرها مستقبلًا لتصبح قابلة للتعديل.</p></section>
+      <footer class="footer">صُنع للتعلّم والتجربة <span aria-hidden="true">♡</span> · Student Hub · Git & GitHub Workshop</footer>
+    </main>
+  </div>
+</body>
+</html>
