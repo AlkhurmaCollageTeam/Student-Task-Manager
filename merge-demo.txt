@@ -1,5 +1,3 @@
 مرحبًا بكم في ورشة Git وGitHub
 hello girls
-
-hi 
-Hi everyone
+ 2026
