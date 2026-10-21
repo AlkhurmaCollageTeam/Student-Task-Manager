@@ -1,0 +1,9 @@
+GitHub Team Collaboration
+
+Member 1: Nouf
+Member 2: Team Member
+
+Practice: Hello from Team Member 2
+Team Member 2: Hello from my computer!
+
+This file is used to practice teamwork on GitHub. 
